@@ -36,10 +36,28 @@ height:160px;
 border-radius:8px;
 }
 
+/* SMALL HEADING */
+.small-heading{
+font-size:27px;
+font-weight:800;
+text-align:center;
+margin-bottom:4px;
+color:#000;
+letter-spacing:1px;
+}
+
+/* SMALL LOGO */
+.small-logo{
+width:60px;
+height:auto;
+vertical-align:middle;
+margin-left:15px;
+}
+
 .header-container h1{
 font-size:50px;
 text-align:center;
-flex-grow:1;
+margin:0;
 }
 
 main{
@@ -102,11 +120,19 @@ background:#eee;
 <body>
 
 <div class="header-container">
-<div class="header-left">
-<img src="firstphoto.jpg" class="header-img">
-<p>President: Mr. Prashant Dnyaneshwarao Mohod</p>
-</div>
-<h1>NMMS परिक्षेत उंच झेप घ्यायची आकांक्षा, AI करेल पूर्ण तुमची हर एक अपेक्षा</h1>
+  <div class="header-left">
+    <img src="firstphoto.jpg" class="header-img">
+    <p>Mr. Prashant Dnyaneshwarao Mohod</p>
+  </div>
+
+  <!-- SMALL HEADING + LOGO + MAIN HEADING -->
+  <div style="flex-grow:1;text-align:center;">
+    <div class="small-heading">
+      MAHARASHTRA STATE BOARD
+      <img src="logo.jpg" alt="Logo" class="small-logo">
+    </div>
+    <h1>NMMS परिक्षेत उंच झेप घ्यायची आकांक्षा, AI करेल पूर्ण तुमची हर एक अपेक्षा</h1>
+  </div>
 </div>
 
 <main>
@@ -131,8 +157,6 @@ background:#eee;
 <a href="https://youtu.be/I02KIm7otxE?si=6yhMEFuzhIWelgIZ">सांकेतिक भाषा भाग -3</a>
 </div>
 </div>
-
-<!-- NMMS SCIENCE -->
 <div class="info-box box6" onclick="toggle(this)">
 <p>NMMS Science</p>
 <div class="block-content">
