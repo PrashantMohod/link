@@ -98,12 +98,15 @@ margin:0;
 text-align:center;
 font-size:18px;
 }
-
 .block-content{
-display:none;
-margin-top:10px;
-font-weight:normal;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  margin-top:10px;
+  font-weight:normal;
 }
+
+
 
 a{
 display:block;
@@ -146,6 +149,22 @@ color:#0b0080;            /* darker blue on hover */
 .open-btn:hover{
 background:#f1f1f1;
 }
+.block-content{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+.arrow{
+  display:inline-block;
+  margin-left:6px;
+  transition: transform 0.4s ease;
+}
+
+.open-btn.active .arrow{
+  transform: rotate(180deg); /* ▼ → ▲ */
+}
+
 
 </style>
 </head>
@@ -175,8 +194,10 @@ background:#f1f1f1;
 <div class="info-box box5" id="mat">
 
 <p>🧠 NMMS MAT</p>
-<button class="open-btn" onclick="toggle(this.parentElement)">
-Click to Open</button>
+<button class="open-btn" onclick="toggle(this)">
+  Click On Chapter <span class="arrow">▼</span>
+</button>
+
 
 <div class="block-content">
 <a href="https://youtu.be/n9JDMzzyWDs?si=6ezBXfx8jBMRxVZY">लयबद्ध मांडणी</a>
@@ -197,9 +218,10 @@ Click to Open</button>
 <div class="info-box box6">
 <p>🔬 NMMS Science</p>
 
-<button class="open-btn" onclick="toggle(this.parentElement)">
-Click to Open
+<button class="open-btn" onclick="toggle(this)">
+  Click On Chapter <span class="arrow">▼</span>
 </button>
+
 
 <div class="block-content">
 <a href="https://notebooklm.google.com/notebook/9092b2cc-8b47-431c-8e16-4325decff9c2?artifactId=44cab014-5a7d-4125-b90d-0eddcdb307e5">1) Living world and classification of Microbes</a>
@@ -230,9 +252,10 @@ Click to Open
 <p>🏰 NMMS History</p>
 
 
-<button class="open-btn" onclick="toggle(this.parentElement)">
-Click to Open
+<button class="open-btn" onclick="toggle(this)">
+  Click On Chapter <span class="arrow">▼</span>
 </button>
+
 
 <div class="block-content">
 
@@ -276,9 +299,10 @@ Click to Open
 <p>🌍 NMMS Geography</p>
 
 
-<button class="open-btn" onclick="toggle(this.parentElement)">
-Click to Open
+<button class="open-btn" onclick="toggle(this)">
+  Click to Chapter <span class="arrow">▼</span>
 </button>
+
 
 <div class="block-content">
 <a href="https://notebooklm.google.com/notebook/ee014361-35d0-4c9d-bd1b-de7321f1e8d5?artifactId=86bda15f-bc49-47c2-97a4-78608aeb9800">1) स्थानिक वेळ व प्रमाण वेळ</a>
@@ -298,10 +322,19 @@ Click to Open
 </main>
 
 <footer>© 2025 Passion for Learning English</footer>
+
 <script>
-function toggle(box){
-const content = box.querySelector(".block-content");
-content.style.display = content.style.display === "block" ? "none" : "block";
+function toggle(button){
+  const box = button.parentElement;
+  const content = box.querySelector(".block-content");
+
+  if(content.style.maxHeight){
+    content.style.maxHeight = null;
+    button.style.display = "block"; // पुन्हा दाखव
+  }else{
+    content.style.maxHeight = content.scrollHeight + "px";
+    button.style.display = "none"; // 🔥 button hide
+  }
 }
 </script>
 
